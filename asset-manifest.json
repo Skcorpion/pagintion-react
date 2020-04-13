@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/pagination/static/css/main.eec4c671.chunk.css",
-    "main.js": "/pagination/static/js/main.c0542aaa.chunk.js",
-    "main.js.map": "/pagination/static/js/main.c0542aaa.chunk.js.map",
-    "runtime-main.js": "/pagination/static/js/runtime-main.7b3bb55f.js",
-    "runtime-main.js.map": "/pagination/static/js/runtime-main.7b3bb55f.js.map",
-    "static/js/2.3acc20f7.chunk.js": "/pagination/static/js/2.3acc20f7.chunk.js",
-    "static/js/2.3acc20f7.chunk.js.map": "/pagination/static/js/2.3acc20f7.chunk.js.map",
-    "index.html": "/pagination/index.html",
-    "precache-manifest.06046e6c32620ca3f3c47ffe07c2bfd8.js": "/pagination/precache-manifest.06046e6c32620ca3f3c47ffe07c2bfd8.js",
-    "service-worker.js": "/pagination/service-worker.js",
-    "static/css/main.eec4c671.chunk.css.map": "/pagination/static/css/main.eec4c671.chunk.css.map",
-    "static/js/2.3acc20f7.chunk.js.LICENSE.txt": "/pagination/static/js/2.3acc20f7.chunk.js.LICENSE.txt"
+    "main.css": "/pagintion-react/static/css/main.eec4c671.chunk.css",
+    "main.js": "/pagintion-react/static/js/main.adb0df75.chunk.js",
+    "main.js.map": "/pagintion-react/static/js/main.adb0df75.chunk.js.map",
+    "runtime-main.js": "/pagintion-react/static/js/runtime-main.3bfeb16d.js",
+    "runtime-main.js.map": "/pagintion-react/static/js/runtime-main.3bfeb16d.js.map",
+    "static/js/2.3acc20f7.chunk.js": "/pagintion-react/static/js/2.3acc20f7.chunk.js",
+    "static/js/2.3acc20f7.chunk.js.map": "/pagintion-react/static/js/2.3acc20f7.chunk.js.map",
+    "index.html": "/pagintion-react/index.html",
+    "precache-manifest.2629767f355fe728c1ed2f7d51f3b7f9.js": "/pagintion-react/precache-manifest.2629767f355fe728c1ed2f7d51f3b7f9.js",
+    "service-worker.js": "/pagintion-react/service-worker.js",
+    "static/css/main.eec4c671.chunk.css.map": "/pagintion-react/static/css/main.eec4c671.chunk.css.map",
+    "static/js/2.3acc20f7.chunk.js.LICENSE.txt": "/pagintion-react/static/js/2.3acc20f7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.7b3bb55f.js",
+    "static/js/runtime-main.3bfeb16d.js",
     "static/js/2.3acc20f7.chunk.js",
     "static/css/main.eec4c671.chunk.css",
-    "static/js/main.c0542aaa.chunk.js"
+    "static/js/main.adb0df75.chunk.js"
   ]
 }
