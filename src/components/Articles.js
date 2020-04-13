@@ -5,22 +5,22 @@ const Articles = ({ page, perPage, articles, withInfo }) => {
   const endSlicePos = startSlicePos + perPage;
   const showedArticles = articles.slice(startSlicePos, endSlicePos);
   const listOfArticles = showedArticles.map((article, index) => (
-    <li key={index}>{article}</li>
+    <li key={index}>"Quarantine days - {article + 1}"</li>
   ));
 
   const firstArticle = (page - 1) * perPage + 1;
   const lastArticle = firstArticle - 1 + listOfArticles.length;
   const info = (
-    <p>
+    <span className="articles-info">
       {firstArticle} - {lastArticle} of {articles.length}
-    </p>
+    </span>
   );
 
   return (
-    <>
+    <div className="articles">
       <ul>{listOfArticles}</ul>
       {withInfo ? info : ''}
-    </>
+    </div>
   );
 };
 

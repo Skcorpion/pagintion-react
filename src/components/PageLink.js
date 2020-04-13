@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 const PageLink = ({ page, currentPage, perPage }) => (
   <Link
-    to={`/pagination?page=${page + 1}&perPage=${perPage}`}
+    to={`/pagintion-react/?page=${page + 1}&perPage=${perPage}`}
     className={classNames('page-link', {
       'page-link__active': page + 1 === currentPage,
     })}

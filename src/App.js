@@ -1,6 +1,7 @@
 import React from 'react';
 import Articles from './components/Articles';
 import Pagination from './components/Pagination';
+import './App.css';
 
 const articles = [...Array(42).keys()];
 
@@ -28,6 +29,7 @@ class App extends React.Component {
       perPage: 5 /* optional with 5 by default */,
       currentPage: 1 /* optional with 1 by default */,
       articles: articles,
+      withInfo: true,
     };
   }
 
@@ -68,22 +70,31 @@ class App extends React.Component {
     this.props.history.push(`?${url}`);
   };
 
+  onInfo = (event) => {
+    this.setState({
+      withInfo: event.target.checked,
+    });
+  };
+
   render() {
-    const { total, perPage, currentPage, articles } = this.state;
+    const { total, perPage, currentPage, articles, withInfo } = this.state;
 
     return (
       <main>
+        <h1>Pagination w/ queryParams</h1>
         <Articles
           page={currentPage}
           perPage={perPage}
           articles={articles}
-          withInfo={true}
+          withInfo={withInfo}
         />
         <Pagination
           onPerPageChange={this.onPerPageChange}
           total={total}
           perPage={perPage}
           currentPage={currentPage}
+          withInfo={withInfo}
+          onInfo={this.onInfo}
           selectPerPage={[3, 5, 10, 20]}
         />
       </main>

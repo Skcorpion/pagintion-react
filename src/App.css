@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  max-width: 40vw;
+  width: 100%;
+  min-width: 400px;
+  margin: 0 auto;
+  line-height: 1.25;
+}
+main h1 {
+  text-align: center;
+  margin-bottom: 0.4em;
+}
+
+.articles {
+  text-align: center;
+  font-style: italic;
+}
+
+.articles ul {
+  margin-bottom: 10px;
+}
+
+.articles-info {
+  display: inline-block;
+  color: rgba(128, 141, 148, 0.82);
+  margin-bottom: 3px;
+}
+
+.pagination-wrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+ul.pagination-pages li {
+  display: inline-block;
+}
+
+ul.pagination-pages li:first-of-type a.page-link {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+ul.pagination-pages li:last-of-type a.page-link {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+ul.pagination-pages li span {
+  cursor: default;
+  letter-spacing: 1px;
+}
+
+a.page-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #4285f4;
+
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #dee2e6;
+
+  margin-left: -1px;
+}
+
+a.page-link:hover {
+  background-color: #e9ecef;
+  color: #0076c7;
+}
+
+a.page-link__active {
+  color: white;
+  cursor: default;
+  background-color: #007bff;
+}
+
+a.page-link__active:hover {
+  color: white;
+  background-color: #007bff;
+}
+
+a.page-link__disable {
+  color: #6c757d;
+  cursor: default;
+}
+
+a.page-link__disable:hover {
+  color: #6c757d;
+  background-color: white;
+}
+
+.info-checkbox {
+  position: absolute;
+  padding: 0.5rem 0.75rem;
+  left: -73px;
+  top: 3px;
+  display: flex;
+}
+
+.pages-select {
+  border: 1px solid #dee2e6;
+  padding: 0.6rem 0.3rem;
+  position: absolute;
+  border-radius: 2px;
+  right: -64px;
+}

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PageLink from './PageLink';
-// import classNames from 'classnames';
+import classNames from 'classnames';
 
 const Pagination = ({
   total,
   perPage,
   currentPage,
-
+  onInfo,
+  withInfo,
   selectPerPage,
   onPerPageChange,
 }) => {
@@ -30,14 +31,23 @@ const Pagination = ({
   ));
 
   return (
-    <>
-      <select value={perPage} onChange={(event) => onPerPageChange(event)}>
-        {listOfOption}
-      </select>
+    <div className="pagination-wrapper">
       <ul className="pagination-pages">
+        <div className="info-checkbox">
+          <label htmlFor="withInfo-check">Info:</label>
+          <input
+            id="withInfo-check"
+            type="checkbox"
+            checked={withInfo}
+            onChange={(event) => onInfo(event)}
+          />
+        </div>
         <li>
           <Link
-            to={`/pagination?page=${
+            className={classNames('page-link', {
+              'page-link__disable': currentPage === 1,
+            })}
+            to={`/pagintion-react/?page=${
               currentPage !== 1 ? currentPage - 1 : 1
             }&perPage=${perPage}`}
           >
@@ -47,12 +57,12 @@ const Pagination = ({
         <li>
           <PageLink page={0} currentPage={currentPage} perPage={perPage} />
         </li>
-        <li hidden={!(currentPage > 3)}>
-          <span>...</span>
+        <li>
+          <span hidden={!(currentPage > 3)}>...</span>
         </li>
         {listOfPages}
-        <li hidden={!(currentPage < pages - 2)}>
-          <span>...</span>
+        <li>
+          <span hidden={!(currentPage < pages - 2)}>...</span>
         </li>
         <li>
           <PageLink
@@ -63,15 +73,25 @@ const Pagination = ({
         </li>
         <li>
           <Link
-            to={`/pagination?page=${
+            className={classNames('page-link', {
+              'page-link__disable': currentPage === pages,
+            })}
+            to={`/pagintion-react/?page=${
               currentPage !== pages ? currentPage + 1 : pages
             }&perPage=${perPage}`}
           >
             next
           </Link>
         </li>
+        <select
+          className="pages-select"
+          value={perPage}
+          onChange={(event) => onPerPageChange(event)}
+        >
+          {listOfOption}
+        </select>
       </ul>
-    </>
+    </div>
   );
 };
 
