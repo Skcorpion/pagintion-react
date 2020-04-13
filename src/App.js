@@ -1,50 +1,57 @@
 import React from 'react';
-import './App.css';
-import Pagination from './components/Pagination/Pagination';
+import Articles from './components/Articles';
+import Pagination from './components/Pagination';
 
 const articles = [...Array(42).keys()];
-const selectPerPage = [3, 5, 10, 20];
+
+function getParams(location) {
+  const searchParams = new URLSearchParams(location.search);
+  return {
+    page: +searchParams.get('page') || 1,
+    perPage: +searchParams.get('perPage') || 5,
+  };
+}
+
+function setParams({ page, perPage }) {
+  const searchParams = new URLSearchParams();
+  searchParams.set('page', page);
+  searchParams.set('perPage', perPage);
+  return searchParams.toString();
+}
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onPageChange = this.onPageChange.bind(this);
-    this.onPerPageChange = this.onPerPageChange.bind(this);
-
     this.state = {
       total: articles.length /* required */,
       perPage: 5 /* optional with 5 by default */,
       currentPage: 1 /* optional with 1 by default */,
-      showedArticles: articles.slice(0, 5),
+      articles: articles,
     };
   }
 
-  onPageChange = (event) => {
-    if (event.target.type === 'button') {
-      const target = event.target.innerText;
+  componentDidMount() {
+    const { location } = this.props;
+    const { page, perPage } = getParams(location);
+    this.setState({
+      currentPage: page,
+      perPage: perPage,
+    });
+  }
 
-      this.setState((prevState) => {
-        let selectedPage = +target;
+  componentDidUpdate() {
+    const { location } = this.props;
+    const { page } = getParams(location);
 
-        if (target === 'prev') {
-          selectedPage = prevState.currentPage - 1;
-        } else if (target === 'next') {
-          selectedPage = prevState.currentPage + 1;
-        }
-
-        const startSlicePos = this.state.perPage * (selectedPage - 1);
-        const endSlicePos = startSlicePos + this.state.perPage;
-
-        if (prevState.page !== selectedPage) {
-          return {
-            currentPage: selectedPage,
-            showedArticles: articles.slice(startSlicePos, endSlicePos),
-          };
-        }
-      });
-    }
-  };
+    this.setState((prevState) => {
+      if (prevState.currentPage !== page) {
+        return {
+          currentPage: page,
+        };
+      }
+    });
+  }
 
   onPerPageChange = (event) => {
     const perPage = +event.target.value;
@@ -52,29 +59,34 @@ class App extends React.Component {
     this.setState({
       perPage,
       currentPage: 1,
-      showedArticles: articles.slice(0, perPage),
     });
+
+    const url = setParams({
+      page: 1,
+      perPage: perPage,
+    });
+    this.props.history.push(`?${url}`);
   };
 
   render() {
-    const { total, perPage, currentPage, showedArticles } = this.state;
-    console.log('showedArticles', showedArticles);
-    console.log('currentPage', currentPage);
+    const { total, perPage, currentPage, articles } = this.state;
 
     return (
-      <>
-        <h1>Pagination</h1>
+      <main>
+        <Articles
+          page={currentPage}
+          perPage={perPage}
+          articles={articles}
+          withInfo={true}
+        />
         <Pagination
+          onPerPageChange={this.onPerPageChange}
           total={total}
           perPage={perPage}
           currentPage={currentPage}
-          withInfo={true}
-          selectPerPage={selectPerPage}
-          showedArticles={showedArticles}
-          onPageChange={this.onPageChange}
-          onPerPageChange={this.onPerPageChange}
+          selectPerPage={[3, 5, 10, 20]}
         />
-      </>
+      </main>
     );
   }
 }
