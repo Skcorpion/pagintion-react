@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0f68253bce233bc431adabf950c8eccd",
+    "revision": "6347af04e5d6e22c78e5b323a3a93298",
     "url": "/pagintion-react/index.html"
   },
   {
-    "revision": "5ab73b4a030fc5432b4a",
+    "revision": "da5ac571f196f2ff8e46",
     "url": "/pagintion-react/static/css/main.eec4c671.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pagintion-react/static/js/2.3acc20f7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5ab73b4a030fc5432b4a",
-    "url": "/pagintion-react/static/js/main.aa8a4472.chunk.js"
+    "revision": "da5ac571f196f2ff8e46",
+    "url": "/pagintion-react/static/js/main.04ec634b.chunk.js"
   },
   {
     "revision": "406c59a7406175193fee",
